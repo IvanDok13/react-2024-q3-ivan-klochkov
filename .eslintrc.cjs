@@ -5,9 +5,6 @@ module.exports = {
     es2022: true,
   },
   extends: [
-    'airbnb',
-    'airbnb-typescript',
-    'airbnb/hooks',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:import/recommended',
@@ -20,17 +17,11 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./tsconfig.json'],
     ecmaFeatures: {
       jsx: true,
     },
   },
   plugins: ['react', 'react-hooks', 'react-refresh', '@typescript-eslint', 'import', 'prettier'],
-  settings: {
-    'import/resolver': {
-      typescript: {},
-    },
-  },
   rules: {
     'react/jsx-uses-react': 'off',
     'react/jsx-props-no-spreading': 'off',
@@ -57,8 +48,6 @@ module.exports = {
     ],
     'max-lines-per-function': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'error',
-    curly: ['error', 'all'],
     '@typescript-eslint/lines-between-class-members': 'off',
     '@typescript-eslint/no-this-alias': [
       'error',
@@ -79,4 +68,9 @@ module.exports = {
       },
     },
   ],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 };
