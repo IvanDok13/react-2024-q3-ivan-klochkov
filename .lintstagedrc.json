@@ -1,5 +1,6 @@
 {
-  "./src/**/*": "npm run prettier:fix",
-  "./src/**/*.{css,scss}": "npm run stylelint",
-  "./src/**/*.{tsx,jsx,ts}": "npm run lint:fix"
+  "*.tsx": ["prettier --write", "eslint"],
+  "*.ts": ["prettier --write", "eslint"],
+  "*.html": ["eslint", "prettier --write"],
+  "*.css": "prettier --write"
 }
