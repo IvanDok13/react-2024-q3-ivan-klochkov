@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import logo from '../../../public/logo-movie.svg';
+import './Header.css';
 
 interface SearchBarProps {
   onSearch: (searchLine: string) => void;
@@ -37,15 +38,16 @@ class Header extends Component<SearchBarProps, SearchBarState> {
       <header className="header">
         <div className="header__wrapper">
           <img src={logo} className="header__logo" alt="logo" />
-          <div className="header__search-str">
+          <div className="header__search">
             <input
+              className="header__search-str"
               type="text"
               placeholder="Search"
               value={this.state.searchLine}
               onChange={this.handleChange}
               onKeyDown={this.handleKeyPress}
             />
-            <button className="header__btn" onClick={this.handleSearch}>
+            <button className="header__search-btn" onClick={this.handleSearch}>
               Go
             </button>
           </div>
