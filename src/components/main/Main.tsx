@@ -53,7 +53,7 @@ class Main extends Component<Props, State> {
         <div className="main__wrapper">
           {characters.map(person => (
             <div className="main__card" key={person.name}>
-              <p className="main__card-name">Name: {`${person.name}`}</p>
+              <p className="main__card-name">Name: {person.name}</p>
               <p className="main__card-info">Birth year: {person.birth_year}</p>
               <p className="main__card-info">Homeworld: {person.homeworld}</p>
               <p className="main__card-info">Gender: {person.gender}</p>
