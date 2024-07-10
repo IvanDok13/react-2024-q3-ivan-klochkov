@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { StarWarsResponse, fetchData } from '../../api/api.ts';
+import './Main.css';
 
 interface Props {
   searchStr: string;
@@ -8,6 +9,7 @@ interface Props {
 
 interface State {
   data: StarWarsResponse | null;
+  error: string | null;
 }
 
 class Main extends Component<Props, State> {
@@ -15,6 +17,7 @@ class Main extends Component<Props, State> {
     super(props);
     this.state = {
       data: null,
+      error: null,
     };
     this.fetchData = this.fetchData.bind(this);
   }
@@ -30,13 +33,21 @@ class Main extends Component<Props, State> {
   }
 
   async fetchData() {
-    this.setState({ data: null });
+    this.setState({ data: null, error: null });
     const { searchStr, perPage } = this.props;
-    const data = await fetchData(searchStr, perPage);
-    this.setState({ data });
+    try {
+      const data = await fetchData(searchStr, perPage);
+      this.setState({ data });
+    } catch (error) {
+      this.setState({ error: 'Failed to fetch characters' });
+    }
   }
   render() {
-    const { data } = this.state;
+    const { data, error } = this.state;
+
+    if (error) {
+      return <div className="loading">{error}</div>;
+    }
 
     if (!data) {
       return <div className="main__loading">Loading...</div>;
@@ -51,20 +62,24 @@ class Main extends Component<Props, State> {
     return (
       <main className="main">
         <div className="main__wrapper">
-          {characters.map(person => (
-            <div className="main__card" key={person.name}>
-              <p className="main__card-name">Name: {person.name}</p>
-              <p className="main__card-info">Birth year: {person.birth_year}</p>
-              <p className="main__card-info">Homeworld: {person.homeworld}</p>
-              <p className="main__card-info">Gender: {person.gender}</p>
-              <p className="main__card-info">Height: {person.height}</p>
-              <p className="main__card-info">Mass: {person.mass}</p>
-              <p className="main__card-info">Eye color: {person.eye_color}</p>
-              <p className="main__card-info">Skin color: {person.skin_color}</p>
-              <p className="main__card-info">Hair color: {person.hair_color}</p>
-              <p className="main__card-info">URL: {person.url}</p>
-            </div>
-          ))}
+          {characters.length ? (
+            characters.map(person => (
+              <div className="main__card" key={person.name}>
+                <h2 className="main__card-name">Name: {person.name}</h2>
+                <p className="main__card-info">Birth year: {person.birth_year}</p>
+                <p className="main__card-info">Homeworld: {person.homeworld}</p>
+                <p className="main__card-info">Gender: {person.gender}</p>
+                <p className="main__card-info">Height: {person.height}</p>
+                <p className="main__card-info">Mass: {person.mass}</p>
+                <p className="main__card-info">Eye color: {person.eye_color}</p>
+                <p className="main__card-info">Skin color: {person.skin_color}</p>
+                <p className="main__card-info">Hair color: {person.hair_color}</p>
+                <p className="main__card-info">URL: {person.url}</p>
+              </div>
+            ))
+          ) : (
+            <div className="loading">No characters found</div>
+          )}
         </div>
       </main>
     );
