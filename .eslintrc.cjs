@@ -22,7 +22,16 @@ module.exports = {
       jsx: false,
     },
   },
-  plugins: ['react', 'react-hooks', 'react-refresh', '@typescript-eslint', 'html', 'import', 'prettier'],
+  plugins: [
+    'react',
+    'react-hooks',
+    'react-refresh',
+    '@typescript-eslint',
+    'html',
+    'import',
+    'prettier',
+    'react-compiler',
+  ],
   rules: {
     'react/jsx-uses-react': 'off',
     'react/jsx-props-no-spreading': 'off',
