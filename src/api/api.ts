@@ -17,8 +17,17 @@ export interface StarWarsResponse {
 
 async function fetchData(searchStr: string, perPage: number): Promise<StarWarsResponse> {
   const response = await fetch(`https://swapi.dev/api/people/?search=${searchStr}&page=1&limit=${perPage}`);
-  const data = await response.json();
-  return data;
+  try {
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error);
+    }
+
+    return data;
+  } catch (error: unknown) {
+    throw new Error('Request failed. No data found');
+  }
 }
 
 export { fetchData };
