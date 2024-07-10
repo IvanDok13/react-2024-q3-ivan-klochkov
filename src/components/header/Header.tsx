@@ -20,7 +20,7 @@ class Header extends Component<SearchBarProps, SearchBarState> {
 
   handleSearch = (): void => {
     const trimStr: string = this.state.searchLine.trim();
-    localStorage.setItem('luc', trimStr);
+    localStorage.setItem('r2', trimStr);
     this.props.onSearch(trimStr);
   };
 
@@ -33,6 +33,7 @@ class Header extends Component<SearchBarProps, SearchBarState> {
       this.handleSearch();
     }
   };
+
   render() {
     return (
       <header className="header">
@@ -41,7 +42,7 @@ class Header extends Component<SearchBarProps, SearchBarState> {
           <div className="header__search">
             <input
               className="header__search-str"
-              type="text"
+              type="search"
               placeholder="Search"
               value={this.state.searchLine}
               onChange={this.handleChange}
