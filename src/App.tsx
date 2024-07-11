@@ -9,13 +9,15 @@ interface AppProps {
 class App extends Component<ComponentPropsWithRef<'div'>, AppProps> {
   constructor(props: ComponentPropsWithRef<'div'>) {
     super(props);
+    const savedSearchTerm = localStorage.getItem('searchTerm') || '';
     this.state = {
-      searchStr: localStorage.getItem('searchStr') || '',
+      searchStr: savedSearchTerm,
     };
     this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleSearch = (searchStr: string) => {
+    localStorage.setItem('searchTerm', searchStr);
     this.setState({ searchStr });
   };
 
