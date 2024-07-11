@@ -72,7 +72,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.tsx'],
+      files: ['*.tsx', '*.ts', '*.jsx', '*.js', '*.html', '*.css'],
       rules: {
         'max-lines-per-function': ['off'],
       },
