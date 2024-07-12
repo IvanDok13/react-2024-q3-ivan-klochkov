@@ -2,18 +2,18 @@ import { Component } from 'react';
 import { StarWarsResponse, fetchData } from '../../api/api.ts';
 import './Main.css';
 
-interface Props {
+interface MainProps {
   searchStr: string;
   perPage: number;
 }
 
-interface State {
+interface MainState {
   data: StarWarsResponse | null;
   error: string | null;
 }
 
-class Main extends Component<Props, State> {
-  constructor(props: Props) {
+class Main extends Component<MainProps, MainState> {
+  constructor(props: MainProps) {
     super(props);
     this.state = {
       data: null,
@@ -26,7 +26,7 @@ class Main extends Component<Props, State> {
     this.fetchData();
   }
 
-  async componentDidUpdate(prevProps: Props) {
+  async componentDidUpdate(prevProps: MainProps) {
     if (prevProps.searchStr !== this.props.searchStr) {
       this.fetchData();
     }
@@ -65,16 +65,22 @@ class Main extends Component<Props, State> {
           {characters.length ? (
             characters.map(person => (
               <div className="main__card" key={person.name}>
-                <h2 className="main__card-name">Name: {person.name}</h2>
-                <p className="main__card-info">Birth year: {person.birth_year}</p>
-                <p className="main__card-info">Homeworld: {person.homeworld}</p>
-                <p className="main__card-info">Gender: {person.gender}</p>
-                <p className="main__card-info">Height: {person.height}</p>
-                <p className="main__card-info">Mass: {person.mass}</p>
-                <p className="main__card-info">Eye color: {person.eye_color}</p>
-                <p className="main__card-info">Skin color: {person.skin_color}</p>
-                <p className="main__card-info">Hair color: {person.hair_color}</p>
-                <p className="main__card-info">URL: {person.url}</p>
+                <h2 className="main__card-name">
+                  Name: <span className="main__card-span">{person.name}</span>
+                </h2>
+
+                <p className="main__card-info">
+                  Gender: <span className="main__card-span">{person.gender}</span>
+                </p>
+                <p className="main__card-info">
+                  Height: <span className="main__card-span">{person.height}</span>
+                </p>
+                <p className="main__card-info">
+                  Mass: <span className="main__card-span">{person.mass}</span>
+                </p>
+                <p className="vertical">
+                  Birth year: <span className="main__card-span">{person.birth_year}</span>
+                </p>
               </div>
             ))
           ) : (

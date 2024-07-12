@@ -1,3 +1,72 @@
+.main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.main__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  color: #f30d0d;
+  overflow: hidden;
+}
+
+.main__card {
+  position: relative;
+  background-color: rgba(40, 30, 43, 0.8);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  max-width: 300px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.main__card-name {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  display: flex;
+  padding: 10px 20px;
+}
+
+.main__card-info {
+  padding: 10px 35px;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  max-width: 100%;
+}
+
+.vertical {
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 56%;
+  padding: 0;
+  margin: 0;
+  left: -50px;
+}
+
+@media screen and (max-width: 1250px) {
+  .character-list {
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+  }
+}
+@media screen and (max-width: 1000px) {
+  .character-list {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+}
+@media screen and (max-width: 580px) {
+  .character-list {
+    grid-template-columns: minmax(250px, 1fr);
+  }
+}
+
 .main__loading,
 .loading {
   text-align: center;
