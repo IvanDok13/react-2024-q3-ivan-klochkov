@@ -1,4 +1,4 @@
-.btn-error {
+.errorBtn {
   width: 120px;
   height: 26px;
   border: 1px solid #daced5;
@@ -7,7 +7,7 @@
   background-color: #cfd3d4;
 }
 
-.btn-error:hover {
+.errorBtn:hover {
   background-color: #68b4b4;
   color: aliceblue;
 }

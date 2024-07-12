@@ -1,5 +1,5 @@
 import { Component, ReactNode } from 'react';
-import './ErrorBtn.css';
+import styles from './ErrorBtn.module.css';
 
 interface ErrBtnProps {
   children?: ReactNode;
@@ -23,7 +23,7 @@ class ButtonWithError extends Component<ErrBtnProps, ErrBtnState> {
       throw new Error('Imitate error...');
     }
     return (
-      <button onClick={this.handleClick} className="btn-error">
+      <button onClick={this.handleClick} className={styles.errorBtn}>
         ErrorBoundaryBtn
       </button>
     );

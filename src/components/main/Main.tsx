@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { StarWarsResponse, fetchData } from '../../api/api.ts';
-import './Main.css';
+import styles from './Main.module.css';
 
 interface MainProps {
   searchStr: string;
@@ -46,45 +46,45 @@ class Main extends Component<MainProps, MainState> {
     const { data, error } = this.state;
 
     if (error) {
-      return <div className="error">{error}</div>;
+      return <div className={styles.error}>{error}</div>;
     }
 
     if (!data) {
-      return <div className="main__loading">Loading...</div>;
+      return <div className={styles.loading}>Loading...</div>;
     }
 
     if (!data.results) {
-      return <div className="loading">Try another search</div>;
+      return <div className={styles.loading}>Try another search</div>;
     }
 
     const characters = data.results;
 
     return (
-      <main className="main">
-        <div className="main__wrapper">
+      <main className={styles.main}>
+        <div className={styles.wrapper}>
           {characters.length ? (
             characters.map(person => (
-              <div className="main__card" key={person.name}>
-                <h2 className="main__card-name">
-                  Name: <span className="main__card-span">{person.name}</span>
+              <div className={styles.card} key={person.name}>
+                <h2 className={styles.cardName}>
+                  Name: <span className={styles.cardSpan}>{person.name}</span>
                 </h2>
 
-                <p className="main__card-info">
-                  Gender: <span className="main__card-span">{person.gender}</span>
+                <p className={styles.cardInfo}>
+                  Gender: <span className={styles.cardSpan}>{person.gender}</span>
                 </p>
-                <p className="main__card-info">
-                  Height: <span className="main__card-span">{person.height}</span>
+                <p className={styles.cardInfo}>
+                  Height: <span className={styles.cardSpan}>{person.height}</span>
                 </p>
-                <p className="main__card-info">
-                  Mass: <span className="main__card-span">{person.mass}</span>
+                <p className={styles.cardInfo}>
+                  Mass: <span className={styles.cardSpan}>{person.mass}</span>
                 </p>
-                <p className="vertical">
-                  Birth year: <span className="main__card-span">{person.birth_year}</span>
+                <p className={styles.vertical}>
+                  Birth year: <span className={styles.cardSpan}>{person.birth_year}</span>
                 </p>
               </div>
             ))
           ) : (
-            <div className="loading">No characters found</div>
+            <div className={styles.loading}>No characters found</div>
           )}
         </div>
       </main>

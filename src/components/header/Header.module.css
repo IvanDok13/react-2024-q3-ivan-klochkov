@@ -6,14 +6,14 @@
   margin-bottom: 10px;
   max-width: 1440px;
 }
-.header__wrapper {
+.wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 30px;
 }
 
-.header__logo {
+.logo {
   width: 20px;
   padding: 2px;
   border: 1px solid #daced5;
@@ -21,11 +21,11 @@
   background-color: #cfd3d4;
 }
 
-.header__search {
+.search {
   display: flex;
 }
 
-.header__search-str {
+.searchStr {
   color: rgb(0, 0, 0);
   font-weight: bold;
   width: 320px;
@@ -37,11 +37,11 @@
   font-size: 1.7em;
 }
 
-.header__search-str:focus {
+.searchStr:focus {
   border-color: #e76956;
 }
 
-.header__search-btn {
+.searchBtn {
   background-color: rgb(181 198 198);
   padding: 5px 15px;
   border-radius: 0 5px 5px 0;
@@ -52,11 +52,11 @@
     transform 0.1s;
   font-weight: bold;
 }
-.header__search-btn:hover {
+.searchBtn:hover {
   background-color: #68b4b4;
   color: aliceblue;
 }
 
-.header__search-btn:active {
+.searchBtn:active {
   transform: scale(0.98);
 }
