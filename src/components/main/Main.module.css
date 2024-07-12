@@ -20,8 +20,7 @@
   background-color: rgba(40, 30, 43, 0.8);
   border: 1px solid #ccc;
   border-radius: 10px;
-  max-width: 312px;
-  width: 100%;
+  width: 312px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px;
 }
