@@ -1,4 +1,6 @@
 import { Component, ComponentPropsWithRef } from 'react';
+import './App.css';
+import ErrorBoundary from './components/errorBoundary/ErrorBoundary.tsx';
 import Header from './components/header/Header.tsx';
 import Main from './components/main/Main.tsx';
 
@@ -23,10 +25,12 @@ class App extends Component<ComponentPropsWithRef<'div'>, AppProps> {
 
   render() {
     return (
-      <div>
-        <Header onSearch={this.handleSearch} />
-        <Main searchStr={this.state.searchStr} perPage={0} />
-      </div>
+      <ErrorBoundary fallback={<div className="fallback"></div>}>
+        <div className="container">
+          <Header onSearch={this.handleSearch} />
+          <Main searchStr={this.state.searchStr} perPage={0} />
+        </div>
+      </ErrorBoundary>
     );
   }
 }
