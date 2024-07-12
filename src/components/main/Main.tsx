@@ -84,7 +84,7 @@ class Main extends Component<MainProps, MainState> {
               </div>
             ))
           ) : (
-            <div className={styles.loading}>No characters found</div>
+            <div className={styles.error}>No characters found</div>
           )}
         </div>
       </main>

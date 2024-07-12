@@ -62,4 +62,13 @@
   text-align: center;
   font-size: 1.5em;
   margin-top: 100px;
+  font-weight: bold;
+  color: #bdf30d;
+  background: rgba(38, 16, 60, 0.9);
+  border-radius: 10%;
+  padding: 10px;
+}
+
+.error {
+  color: #f30d0d;
 }
