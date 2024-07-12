@@ -46,7 +46,7 @@ class Main extends Component<MainProps, MainState> {
     const { data, error } = this.state;
 
     if (error) {
-      return <div className="loading">{error}</div>;
+      return <div className="error">{error}</div>;
     }
 
     if (!data) {
