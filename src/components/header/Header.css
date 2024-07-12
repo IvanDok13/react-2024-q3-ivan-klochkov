@@ -1,17 +1,24 @@
 .header {
   width: 100%;
-  padding: 7px 2px;
-  border-bottom: #ced4da 1px solid;
+  padding: 10px 20px;
+  background: rgba(161, 21, 207, 0.5);
+  border-radius: 50%;
+  margin-bottom: 10px;
+  max-width: 1440px;
 }
 .header__wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 30px;
 }
 
 .header__logo {
-  width: 35px;
+  width: 30px;
   padding: 2px;
+  border: 1px solid #daced5;
+  border-radius: 5px;
+  background-color: #cfd3d4;
 }
 
 .header__search {
@@ -19,30 +26,35 @@
 }
 
 .header__search-str {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
   width: 320px;
   padding: 5px 10px;
-  border: 1px solid #ced4da;
+  border: 1px solid #04bdfa;
   border-radius: 5px 0 0 5px;
   outline: none;
-  background-color: rgba(255, 255, 255, 0.65);
-  font-size: 1em;
+  background-color: #cfd3d4;
+  font-size: 1.7em;
 }
 
 .header__search-str:focus {
-  border-color: #7eb4f6;
+  border-color: #e76956;
 }
 
 .header__search-btn {
+  background-color: rgb(181 198 198);
   padding: 5px 15px;
   border-radius: 0 5px 5px 0;
-  font-size: 1.1em;
+  font-size: 1.4em;
   transition:
     background-color 0.3s,
     color 0.3s,
     transform 0.1s;
+  font-weight: bold;
 }
 .header__search-btn:hover {
-  background-color: #d1dce8;
+  background-color: #68b4b4;
+  color: aliceblue;
 }
 
 .header__search-btn:active {
