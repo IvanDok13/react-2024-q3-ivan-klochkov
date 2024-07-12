@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import logo from '../../../public/logo-movie.svg';
+import logo from '../../../public/logo-char.svg';
 import './Header.css';
 
 interface SearchBarProps {
@@ -20,7 +20,6 @@ class Header extends Component<SearchBarProps, SearchBarState> {
 
   handleSearch = (): void => {
     const trimStr: string = this.state.searchLine.trim();
-    localStorage.setItem('r2', trimStr);
     this.props.onSearch(trimStr);
   };
 
