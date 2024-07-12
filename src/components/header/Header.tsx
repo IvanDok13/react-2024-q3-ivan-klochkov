@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import logo from '../../../public/logo-char.svg';
+import ButtonWithError from '../errorBtn/ErrorBtn.tsx';
 import './Header.css';
 
 interface SearchBarProps {
@@ -51,6 +52,7 @@ class Header extends Component<SearchBarProps, SearchBarState> {
               Go
             </button>
           </div>
+          <ButtonWithError />
         </div>
       </header>
     );
