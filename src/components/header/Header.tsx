@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import logo from '../../../public/logo-char.svg';
 import ButtonWithError from '../errorBtn/ErrorBtn.tsx';
 import './Header.css';
 
@@ -38,7 +37,7 @@ class Header extends Component<SearchBarProps, SearchBarState> {
     return (
       <header className="header">
         <div className="header__wrapper">
-          <img src={logo} className="header__logo" alt="logo" />
+          <img src="/logo-char.svg" className="header__logo" alt="logo" />
           <div className="header__search">
             <input
               className="header__search-str"
