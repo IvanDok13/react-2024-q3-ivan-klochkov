@@ -1,5 +1,7 @@
 import { Component } from 'react';
-import { StarWarsResponse, fetchData } from '../../api/api.ts';
+import { fetchData } from '../../api/api.ts';
+import { StarWarsResponse } from '../../types/character.interface.ts';
+import CharItem from '../main/char-item/CharItem.tsx';
 import styles from './Main.module.css';
 
 interface MainProps {
@@ -63,26 +65,7 @@ class Main extends Component<MainProps, MainState> {
       <main className={styles.main}>
         <div className={styles.wrapper}>
           {characters.length ? (
-            characters.map(person => (
-              <div className={styles.card} key={person.name}>
-                <h2 className={styles.cardName}>
-                  Name: <span className={styles.cardSpan}>{person.name}</span>
-                </h2>
-
-                <p className={styles.cardInfo}>
-                  Gender: <span className={styles.cardSpan}>{person.gender}</span>
-                </p>
-                <p className={styles.cardInfo}>
-                  Height: <span className={styles.cardSpan}>{person.height}</span>
-                </p>
-                <p className={styles.cardInfo}>
-                  Mass: <span className={styles.cardSpan}>{person.mass}</span>
-                </p>
-                <p className={styles.vertical}>
-                  Birth year: <span className={styles.cardSpan}>{person.birth_year}</span>
-                </p>
-              </div>
-            ))
+            characters.map(person => <CharItem key={person.name} person={person} />)
           ) : (
             <div className={styles.error}>No characters found</div>
           )}
