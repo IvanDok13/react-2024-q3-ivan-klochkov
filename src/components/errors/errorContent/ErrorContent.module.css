@@ -1,0 +1,8 @@
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('/public/error.png') no-repeat center center fixed;
+  background-size: contain;
+}
